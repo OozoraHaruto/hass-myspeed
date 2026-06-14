@@ -1,0 +1,12 @@
+{
+  "domain": "myspeed",
+  "name": "MySpeed",
+  "codeowners": ["@YOUR_GITHUB_USERNAME"],
+  "config_flow": true,
+  "documentation": "https://github.com/YOUR_GITHUB_USERNAME/myspeed-homeassistant",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/YOUR_GITHUB_USERNAME/myspeed-homeassistant/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

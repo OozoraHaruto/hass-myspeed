@@ -1,0 +1,76 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a MySpeed instance",
+        "description": "Enter the address of your MySpeed instance. The default port is 5216. Provide the password only if your instance is password-protected.",
+        "data": {
+          "url": "URL",
+          "password": "Password",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "For example http://192.168.1.50:5216"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate MySpeed",
+        "description": "Update the password for {url}.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect. Check the URL and that MySpeed is reachable.",
+      "invalid_auth": "Incorrect password.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This MySpeed instance is already configured.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "MySpeed options",
+        "data": {
+          "scan_interval": "Update interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "download": { "name": "Download" },
+      "upload": { "name": "Upload" },
+      "ping": { "name": "Ping" },
+      "jitter": { "name": "Jitter" },
+      "test_duration": { "name": "Test duration" },
+      "last_test": { "name": "Last test" },
+      "server_name": { "name": "Server" },
+      "test_type": {
+        "name": "Test type",
+        "state": {
+          "auto": "Automatic",
+          "custom": "Manual"
+        }
+      }
+    },
+    "binary_sensor": {
+      "running": { "name": "Test running" },
+      "paused": { "name": "Paused" },
+      "last_test_failed": { "name": "Last test failed" }
+    },
+    "switch": {
+      "pause": { "name": "Pause tests" }
+    },
+    "button": {
+      "run_test": { "name": "Run speed test" }
+    },
+    "update": {
+      "version": { "name": "Version" }
+    }
+  }
+}
