@@ -18,6 +18,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import MySpeedAuthError, MySpeedClient, MySpeedConnectionError
 from .const import (
+    CONF_NAME,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
     CONF_URL,
@@ -33,6 +34,7 @@ def _user_schema(defaults: Mapping[str, Any] | None = None) -> vol.Schema:
     defaults = defaults or {}
     return vol.Schema(
         {
+            vol.Optional(CONF_NAME, default=defaults.get(CONF_NAME, "")): str,
             vol.Required(CONF_URL, default=defaults.get(CONF_URL, "")): str,
             vol.Optional(
                 CONF_PASSWORD, default=defaults.get(CONF_PASSWORD, "")
@@ -88,8 +90,9 @@ class MySpeedConfigFlow(ConfigFlow, domain=DOMAIN):
                 # One entry per host; prevents accidental duplicates.
                 await self.async_set_unique_id(client.host)
                 self._abort_if_unique_id_configured()
+                name = (user_input.get(CONF_NAME) or "").strip()
                 return self.async_create_entry(
-                    title=client.host,
+                    title=name or client.host,
                     data={
                         CONF_URL: url,
                         CONF_PASSWORD: user_input.get(CONF_PASSWORD) or "",

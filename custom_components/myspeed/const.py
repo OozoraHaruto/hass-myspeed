@@ -8,6 +8,7 @@ from typing import Final
 DOMAIN: Final = "myspeed"
 
 # Config entry keys
+CONF_NAME: Final = "name"
 CONF_URL: Final = "url"
 CONF_PASSWORD: Final = "password"
 CONF_VERIFY_SSL: Final = "verify_ssl"

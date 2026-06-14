@@ -5,11 +5,13 @@
         "title": "Add a MySpeed instance",
         "description": "Enter the address of your MySpeed instance. The default port is 5216. Provide the password only if your instance is password-protected.",
         "data": {
+          "name": "Name",
           "url": "URL",
           "password": "Password",
           "verify_ssl": "Verify SSL certificate"
         },
         "data_description": {
+          "name": "Optional friendly name for this instance. Defaults to the host if left blank.",
           "url": "For example http://192.168.1.50:5216"
         }
       },
