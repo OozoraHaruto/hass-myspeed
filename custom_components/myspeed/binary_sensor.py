@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from homeassistant.components.binary_sensor import (
+    ENTITY_ID_FORMAT,
     BinarySensorDeviceClass,
     BinarySensorEntity,
     BinarySensorEntityDescription,
@@ -68,7 +69,7 @@ class MySpeedBinarySensor(MySpeedEntity, BinarySensorEntity):
 
     def __init__(self, coordinator, description: MySpeedBinaryDescription) -> None:
         """Initialize."""
-        super().__init__(coordinator, description.key)
+        super().__init__(coordinator, description.key, ENTITY_ID_FORMAT)
         self.entity_description = description
 
     @property

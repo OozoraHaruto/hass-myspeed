@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from homeassistant.components.button import ButtonEntity, ButtonEntityDescription
+from homeassistant.components.button import (
+    ENTITY_ID_FORMAT,
+    ButtonEntity,
+    ButtonEntityDescription,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -30,7 +34,7 @@ class MySpeedRunButton(MySpeedEntity, ButtonEntity):
 
     def __init__(self, coordinator) -> None:
         """Initialize."""
-        super().__init__(coordinator, RUN_TEST.key)
+        super().__init__(coordinator, RUN_TEST.key, ENTITY_ID_FORMAT)
 
     async def async_press(self) -> None:
         """Run a speed test, then refresh shortly after."""

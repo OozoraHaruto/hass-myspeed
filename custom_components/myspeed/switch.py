@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from homeassistant.components.switch import (
+    ENTITY_ID_FORMAT,
     SwitchDeviceClass,
     SwitchEntity,
     SwitchEntityDescription,
@@ -42,7 +43,7 @@ class MySpeedPauseSwitch(MySpeedEntity, SwitchEntity):
 
     def __init__(self, coordinator) -> None:
         """Initialize."""
-        super().__init__(coordinator, PAUSE.key)
+        super().__init__(coordinator, PAUSE.key, ENTITY_ID_FORMAT)
 
     @property
     def is_on(self) -> bool | None:

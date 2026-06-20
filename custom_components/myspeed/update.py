@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from homeassistant.components.update import UpdateEntity, UpdateEntityDescription
+from homeassistant.components.update import (
+    ENTITY_ID_FORMAT,
+    UpdateEntity,
+    UpdateEntityDescription,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
@@ -33,7 +37,7 @@ class MySpeedUpdate(MySpeedEntity, UpdateEntity):
 
     def __init__(self, coordinator) -> None:
         """Initialize."""
-        super().__init__(coordinator, VERSION.key)
+        super().__init__(coordinator, VERSION.key, ENTITY_ID_FORMAT)
 
     @property
     def installed_version(self) -> str | None:
